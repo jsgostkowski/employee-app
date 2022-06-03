@@ -9,7 +9,7 @@ export const Employess = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const loadMore = () => {
-    setRecords(records + 10);
+    setRecords((prevstate) => prevstate + 10);
   };
   const searchItems = (firstName: any) => {
     setSearchTerm(firstName);
@@ -53,9 +53,11 @@ export const Employess = () => {
           ? filteredResult.map((e: any) => {
               return (
                 <div>
-                  <ul key={e.id}>
-                    <li>{e.firstName}</li>
-                  </ul>
+                  <div key={e.id}>
+                    <h1>{e.firstName}</h1>
+                    <p>{e.lastName}</p>
+                    <p>{e.contactNumber}</p>
+                  </div>
                 </div>
               );
             })
